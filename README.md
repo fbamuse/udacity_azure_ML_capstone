@@ -26,27 +26,27 @@ The number of data selected this time is just under 300, which is not enough to 
 Cardiovascular disease (CVD) kills an estimated 17.9 million people each year. It accounts for 31% of all deaths worldwide.　Heart failure is often caused by CVD, and this dataset contains 12 features that can be used to predict heart failure mortality.  
 
 
-
-
-| No | Column                   | detail                                                                 |
-|----|--------------------------|------------------------------------------------------------------------|
-| 1  | age                      | age                                                                    |
-| 2  | anaemia                  | Decrease of red blood cells or hemoglobin (boolean                     |
-| 3  | diabetes                 | If the patient has diabetes (boolean)                                  |
-| 4  | creatinine_phosphokinase | Level of the CPK enzyme in the blood (mcg/L)                           |
-| 5  | ejection_fraction        | Percentage of blood leaving the heart at each contraction (percentage) |
-| 6  | high_blood_pressure      | If the patient has hypertension (boolean)                              |
-| 7  | platelets                | Platelets in the blood (kiloplatelets/mL)                              |
-| 8  | serum_creatinine         | Level of serum creatinine in the blood (mg/dL)                         |
-| 9  | serum_sodium             | Level of serum sodium in the blood (mEq/L)                             |
-| 10 | sex                      | Woman or man (binary)                                                  |
-| 11 | smoking                  | If the patient smokes or not (boolean)                                 |
-| 12 | time                     | Follow-up period (days)                                                |
-| 13 | Deth_Event               | If the patient deceased during the follow-up period (boolean)           |
- 
-Dataset from Davide Chicco, Giuseppe Jurman: â€œMachine learning can predict survival of patients with heart failure from serum creatinine and ejection fraction alone. BMC Medical Informatics and Decision Making 20, 16 (2020)
-
-
+    | No | Column                   | detail                                                                 |
+    |----|--------------------------|------------------------------------------------------------------------|
+    | 1  | age                      | age                                                                    |
+    | 2  | anaemia                  | Decrease of red blood cells or hemoglobin (boolean                     |
+    | 3  | diabetes                 | If the patient has diabetes (boolean)                                  |
+    | 4  | creatinine_phosphokinase | Level of the CPK enzyme in the blood (mcg/L)                           |
+    | 5  | ejection_fraction        | Percentage of blood leaving the heart at each contraction (percentage) |
+    | 6  | high_blood_pressure      | If the patient has hypertension (boolean)                              |
+    | 7  | platelets                | Platelets in the blood (kiloplatelets/mL)                              |
+    | 8  | serum_creatinine         | Level of serum creatinine in the blood (mg/dL)                         |
+    | 9  | serum_sodium             | Level of serum sodium in the blood (mEq/L)                             |
+    | 10 | sex                      | Woman or man (binary)                                                  |
+    | 11 | smoking                  | If the patient smokes or not (boolean)                                 |
+    | 12 | time                     | Follow-up period (days)                                                |
+    | 13 | Deth_Event               | If the patient deceased during the follow-up period (boolean)           |
+    
+    Dataset from Davide Chicco, Giuseppe Jurman: â€œMachine learning can predict survival of patients with heart failure from serum creatinine and ejection fraction alone. BMC Medical Informatics and Decision Making 20, 16 (2020)
+- Data Profile
+![](pic/2021-01-04-21-51-17.png)
+![](pic/2021-01-04-21-52-24.png)
+![](pic/2021-01-04-21-54-54.png)
 ### Task
 Based on this patient information, the patient's death (Deth_Event) is estimated. The explanatory variables use the remaining 12 futures.
 
@@ -85,24 +85,38 @@ Then store it in a dataset and convert it to pandas.
     | VotingEnsemble |0.96156 |   
 <br>
 
-* parameter  
-![](pic/2021-01-03-23-44-07.png)
+* parameter 
+    |parameter|values|
+    |---------------------------|-----------|
+    | min_samples_split | 0.10368421052631578  |
+    | min_weight_fraction_leaf     | 0.0 |
+    | n_estimators |10|
+    | n_jobs |-1|
+    | oob_score   | False|
+    | random_state            | None  |
+    | verbose             |0|
+    | warm_start | False |
+
+    ![](pic/2021-01-03-23-44-07.png)
 
 
-- best model
-    ![](pic/2021-01-04-13-26-23.png)
-
-
+- best model  
+ ![](pic/2021-01-04-13-26-23.png)
 - `RunDetails` widget
 ![](pic/2021-01-03-23-23-51.png)
 
-- data Guardrails
+- data Guardrails  
 ![](pic/2021-01-03-23-26-20.png)
 - histoty  
 ![](pic/2021-01-03-23-25-04.png)
-- furether improve ment  
 
- 
+### furether improvement of model  
+- The number of data selected this time is just under 300, which is not enough to guarantee the generalization of the model. It is possible to build a robust model by collecting more data.
+- it is effective to eliminate the highly correlated feature and reduce the variables.
+- Make Maximum amount of time in hours longer
+- try cross validation
+- try DNN on AutoML (enable_dnn chenge true)
+
 ## Hyperparameter Tuning
 
 select 3-layer DNN
@@ -149,6 +163,14 @@ An overview of the types of parameters and their ranges used for the hyperparame
     ![](pic/2021-01-04-12-05-40.png)
     ![](pic/2021-01-04-12-04-34.png)
     ![](pic/2021-01-04-12-05-02.png)
+
+### furether improvement of model  
+- The number of data selected this time is just under 300, which is not enough to guarantee the generalization of the model. It is possible to build a robust model by collecting more data.
+- it is effective to eliminate the highly correlated feature and reduce the variables.
+- try more layer Network and another activation function
+- Try another algorithm that gives a good score in AutoML, such as boosting. 
+-Make the sampling time longer and try BayesianParameterSampling 
+
     
 
 ## Model Deployment
