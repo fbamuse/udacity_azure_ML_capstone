@@ -171,4 +171,4 @@ The following shows how 20 inputs are prepared and the estimation result of the 
 
 
 ## Screen Recording
-![udacity azureML capstone.mp4](https://github.com/fbamuse/udacity_azure_ML_capstone/blob/master/udacity%20azureML%20capstone.mp4)
+![capstone.MP4](https://github.com/fbamuse/udacity_azure_ML_capstone/blob/master/udacity%20azureML%20capstone.mp4)
