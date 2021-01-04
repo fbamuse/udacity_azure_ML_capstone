@@ -17,9 +17,7 @@ For model optimization, we will try two cases: a case where a deep learning mode
 
 
 - Further improvement of the model  
-The number of data selected this time is just under 300, which is not enough to guarantee the generalization of the model. It is possible to build a robust model by collecting more data.
-On top of that, it is also effective to eliminate the highly correlated fu tea and reduce the variables.
-
+The number of data selected this time is just under 300, which is not enough to guarantee the generalization of the model. It is possible to build a robust model by collecting more data.  and it is effective to eliminate the highly correlated feature and reduce the variables.
 
 ## Dataset
 
