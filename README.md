@@ -16,8 +16,6 @@ For model optimization, we will try two cases: a case where a deep learning mode
 - Azure ML Studio enables seamless operation of workflow from model training to deployment. AutoML plays a central role in that.
 
 
-- Further improvement of the model  
-The number of data selected this time is just under 300, which is not enough to guarantee the generalization of the model. It is possible to build a robust model by collecting more data.  and it is effective to eliminate the highly correlated feature and reduce the variables.
 
 ## Dataset
 
